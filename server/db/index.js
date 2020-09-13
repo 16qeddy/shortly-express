@@ -4,8 +4,8 @@ const Promise = require('bluebird');
 const database = 'shortly';
 
 const connection = mysql.createConnection({
-  user: 'student',
-  password: 'student'
+  user: 'root',
+  password: 'password'
 });
 
 const db = Promise.promisifyAll(connection, { multiArgs: true });
@@ -17,3 +17,5 @@ db.connectAsync()
   .then(() => createTables(db));
 
 module.exports = db;
+// mysqld -u root -p
+// mysql -u root -p
